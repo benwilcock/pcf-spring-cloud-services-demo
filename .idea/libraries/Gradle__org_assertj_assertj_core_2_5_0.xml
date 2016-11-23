@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: org.assertj:assertj-core:2.5.0">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/assertj/assertj-core/2.5.0/assertj-core-2.5.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
