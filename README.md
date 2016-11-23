@@ -9,9 +9,9 @@ It contains two Spring Boot Services:
 
 Between them, these services use all three components of the Spring Cloud Services pack for Pivotal Cloud Foundry.
 
- 1. covers-consumer uses the Eureka (Registry) to discover the covers-service
- 2. covers-consumer uses Hystrix (Service Breaker) to protect itself from the loss of the covers-service.
- 3. covers-service uses Spring Cloud Config to get the list of "covers" it provides.
+ 1. `covers-consumer` uses the Eureka (Registry) to discover the `covers-service`.
+ 2. `covers-consumer` uses Hystrix (Service Breaker) to protect itself from the loss of the `covers-service`.
+ 3. `covers-service` uses Spring Cloud Config to get the list of "insurance covers" it provides.
 
 ## About the Author
 
