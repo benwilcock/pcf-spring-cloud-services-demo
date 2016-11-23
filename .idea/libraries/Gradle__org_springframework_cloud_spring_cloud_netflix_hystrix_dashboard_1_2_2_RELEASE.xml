@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.cloud:spring-cloud-netflix-hystrix-dashboard:1.2.2.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-netflix-hystrix-dashboard/1.2.2.RELEASE/887ad3aadefcf685873c51b189302bd9cb90d79e/spring-cloud-netflix-hystrix-dashboard-1.2.2.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-netflix-hystrix-dashboard/1.2.2.RELEASE/71720e0c3fee03b74c4a97d89bab88ee169b4b79/spring-cloud-netflix-hystrix-dashboard-1.2.2.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

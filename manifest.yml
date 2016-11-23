@@ -1,0 +1,12 @@
+---
+applications:
+  - name: covers-service
+    path: ./covers-service/build/libs/covers-service.jar
+    services:
+      - registry
+      - config
+  - name: covers-consumer
+    path: ./covers-consumer/build/libs/covers-consumer.jar
+    services:
+      - registry
+      - breaker

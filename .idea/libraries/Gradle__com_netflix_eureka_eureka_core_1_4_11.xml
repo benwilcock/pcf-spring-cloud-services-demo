@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.netflix.eureka:eureka-core:1.4.11">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.eureka/eureka-core/1.4.11/bc65cd5d0d1384db43d752621e989980f3c05819/eureka-core-1.4.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.netflix.eureka/eureka-core/1.4.11/d437fb2a89734e0ef4d4befe661e0e67830176ef/eureka-core-1.4.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.netflix.governator:governator-core:1.12.10">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/netflix/governator/governator-core/1.12.10/governator-core-1.12.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,136 @@
+2016/11/22 21:18:51 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_GB 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: Loading user properties from: /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/user.properties 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: Loading system properties from: /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/system.properties 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: Version 3.0 r1743807 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: java.version=1.8.0_102 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: os.name=Mac OS X 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: os.arch=x86_64 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: os.version=10.12.1 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: Max memory     =514850816 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: Available Processors =8 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: Default Locale=English (United Kingdom) 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: JMeter  Locale=English (United Kingdom) 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: JMeterHome=/Users/benwilcock/Desktop/apache-jmeter-3.0 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: user.dir  =/Users/benwilcock/src/unversioned/hystrix-demo 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: PWD       =/Users/benwilcock/src/unversioned/hystrix-demo 
+2016/11/22 21:18:51 INFO  - jmeter.JMeter: IP: 192.168.11.1 Name: MacBook-Pro.local FullName: 192.168.11.1 
+2016/11/22 21:18:52 INFO  - jmeter.gui.action.LookAndFeelCommand: Using look and feel: com.apple.laf.AquaLookAndFeel [Mac OS X, System] 
+2016/11/22 21:18:52 INFO  - jmeter.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties 
+2016/11/22 21:18:54 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
+2016/11/22 21:18:54 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
+2016/11/22 21:18:55 INFO  - jmeter.util.BSFTestElement: Registering JMeter version of JavaScript engine as work-round for BSF-22 
+2016/11/22 21:18:55 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/22 21:18:55 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/22 21:18:55 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/22 21:18:55 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/22 21:18:55 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2016/11/22 21:18:55 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser 
+2016/11/22 21:18:56 INFO  - jorphan.exec.KeyToolUtils: keytool found at 'keytool' 
+2016/11/22 21:18:56 INFO  - jmeter.protocol.http.proxy.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/proxyserver.jks 
+2016/11/22 21:18:56 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.mongodb.config.MongoSourceElement 
+2016/11/22 21:18:56 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.mongodb.sampler.MongoScriptSampler 
+2016/11/22 21:18:56 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.visualizers.DistributionGraphVisualizer 
+2016/11/22 21:18:56 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
+2016/11/22 21:18:56 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
+2016/11/22 21:18:56 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
+2016/11/22 21:18:56 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
+2016/11/22 21:18:56 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.visualizers.SplineVisualizer 
+2016/11/22 21:19:03 INFO  - jmeter.services.FileServer: Default base='/Users/benwilcock/src/unversioned/hystrix-demo' 
+2016/11/22 21:19:03 INFO  - jmeter.gui.action.Load: Loading file: /Users/benwilcock/src/unversioned/hystrix-demo/jMeterTestPlan.jmx 
+2016/11/22 21:19:03 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/unversioned/hystrix-demo' 
+2016/11/22 21:19:03 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
+2016/11/22 21:19:03 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2016/11/22 21:19:03 INFO  - jmeter.save.SaveService: Using SaveService properties version 2.9 
+2016/11/22 21:19:03 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2016/11/22 21:19:03 INFO  - jmeter.save.SaveService: Loading file: /Users/benwilcock/src/unversioned/hystrix-demo/jMeterTestPlan.jmx 
+2016/11/22 21:19:03 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/unversioned/hystrix-demo' 
+2016/11/22 21:20:36 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2016/11/22 21:20:36 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/22 21:20:36 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/22 21:20:36 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
+2016/11/22 21:20:37 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
+2016/11/22 21:20:37 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group Thread Group. 
+2016/11/22 21:20:37 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2016/11/22 21:20:37 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 1 ramp-up 1 perThread 1000.0 delayedStart=false 
+2016/11/22 21:20:37 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2016/11/22 21:20:37 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2016/11/22 21:20:37 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
+2016/11/22 21:20:37 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = MacBook-Pro.local 
+2016/11/22 21:20:37 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 
+2016/11/22 21:27:50 INFO  - jmeter.gui.action.Start: Stopping test 
+2016/11/22 21:27:50 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-1 
+2016/11/22 21:27:50 WARN  - jmeter.threads.JMeterThread: The delay timer was interrupted - probably did not wait as long as intended. 
+2016/11/22 21:27:50 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
+2016/11/22 21:27:50 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
+2016/11/22 21:27:50 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(false,*local*) 
+2016/11/22 21:41:55 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2016/11/22 21:41:55 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/22 21:41:55 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
+2016/11/22 21:41:55 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
+2016/11/22 21:41:55 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group Thread Group. 
+2016/11/22 21:41:55 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2016/11/22 21:41:55 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 1 ramp-up 1 perThread 1000.0 delayedStart=false 
+2016/11/22 21:41:55 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2016/11/22 21:41:55 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2016/11/22 21:41:55 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
+2016/11/22 21:49:30 INFO  - jmeter.gui.action.Start: Stopping test 
+2016/11/22 21:49:30 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-1 
+2016/11/22 21:49:30 WARN  - jmeter.threads.JMeterThread: The delay timer was interrupted - probably did not wait as long as intended. 
+2016/11/22 21:49:30 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
+2016/11/22 21:49:30 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
+2016/11/22 21:49:30 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(false,*local*) 
+2016/11/22 21:56:04 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2016/11/22 21:56:04 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/22 21:56:04 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
+2016/11/22 21:56:05 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
+2016/11/22 21:56:05 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group Thread Group. 
+2016/11/22 21:56:05 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2016/11/22 21:56:05 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 1 ramp-up 1 perThread 1000.0 delayedStart=false 
+2016/11/22 21:56:05 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2016/11/22 21:56:05 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2016/11/22 21:56:05 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
+2016/11/22 21:58:37 INFO  - jmeter.gui.action.Start: Stopping test 
+2016/11/22 21:58:37 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-1 
+2016/11/22 21:58:37 WARN  - jmeter.threads.JMeterThread: The delay timer was interrupted - probably did not wait as long as intended. 
+2016/11/22 21:58:37 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
+2016/11/22 21:58:37 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
+2016/11/22 21:58:37 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(false,*local*) 
+2016/11/22 22:00:41 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2016/11/22 22:00:41 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/22 22:00:41 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
+2016/11/22 22:00:41 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
+2016/11/22 22:00:41 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group Thread Group. 
+2016/11/22 22:00:41 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2016/11/22 22:00:41 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 1 ramp-up 1 perThread 1000.0 delayedStart=false 
+2016/11/22 22:00:41 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2016/11/22 22:00:41 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2016/11/22 22:00:41 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
+2016/11/22 22:04:21 INFO  - jmeter.gui.action.Start: Stopping test 
+2016/11/22 22:04:21 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-1 
+2016/11/22 22:04:21 WARN  - jmeter.threads.JMeterThread: The delay timer was interrupted - probably did not wait as long as intended. 
+2016/11/22 22:04:21 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
+2016/11/22 22:04:21 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
+2016/11/22 22:04:21 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(false,*local*) 
+2016/11/22 22:04:50 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2016/11/22 22:04:50 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/22 22:04:50 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
+2016/11/22 22:04:51 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
+2016/11/22 22:04:51 INFO  - jmeter.engine.StandardJMeterEngine: Starting 2 threads for group Thread Group. 
+2016/11/22 22:04:51 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2016/11/22 22:04:51 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 2 ramp-up 1 perThread 500.0 delayedStart=false 
+2016/11/22 22:04:51 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
+2016/11/22 22:04:51 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2016/11/22 22:04:51 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2016/11/22 22:04:51 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-2 
+2016/11/22 22:22:11 INFO  - jmeter.gui.action.Start: Stopping test 
+2016/11/22 22:22:11 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-1 
+2016/11/22 22:22:11 WARN  - jmeter.threads.JMeterThread: Interrupting: Thread Group 1-1 sampler: HTTP Request 
+2016/11/22 22:22:11 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-2 
+2016/11/22 22:22:11 WARN  - jmeter.threads.JMeterThread: Interrupting: Thread Group 1-2 sampler: HTTP Request 
+2016/11/22 22:22:11 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
+2016/11/22 22:22:11 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-2 
+2016/11/22 22:22:11 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
+2016/11/22 22:22:11 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(false,*local*) 
