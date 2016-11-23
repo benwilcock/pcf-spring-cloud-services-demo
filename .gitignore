@@ -2,3 +2,6 @@
 .idea
 .DS_Store
 *.zip
+*.log
+covers-consumer/build
+covers-service/build

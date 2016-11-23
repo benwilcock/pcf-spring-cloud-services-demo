@@ -2,10 +2,10 @@
 
 This simple project demonstrates the use of Spring Cloud Services in PCF from Spring Boot microservice applications.
 
-It contains two Spring Boot Services:
+It contains two Spring Boot Microservices:
 
- 1. The Insurance Covers App (`covers-consumer`)
- 2. The Covers Microservice (`covers-service`)
+ 1. The Insurance Covers App `covers-consumer` which depends on...
+ 2. The Covers Microservice `covers-service`
 
 Between them, these services use all three components of the Spring Cloud Services pack for Pivotal Cloud Foundry.
 
