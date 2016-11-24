@@ -1,87 +1,63 @@
-2016/11/23 20:36:07 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_GB 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: Loading user properties from: /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/user.properties 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: Loading system properties from: /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/system.properties 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: Version 3.0 r1743807 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: java.version=1.8.0_102 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: os.name=Mac OS X 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: os.arch=x86_64 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: os.version=10.12.1 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: file.encoding=UTF-8 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: Max memory     =514850816 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: Available Processors =8 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: Default Locale=English (United Kingdom) 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: JMeter  Locale=English (United Kingdom) 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: JMeterHome=/Users/benwilcock/Desktop/apache-jmeter-3.0 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: user.dir  =/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: PWD       =/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo 
-2016/11/23 20:36:07 INFO  - jmeter.JMeter: IP: 192.168.11.1 Name: MacBook-Pro.local FullName: 192.168.11.1 
-2016/11/23 20:36:09 INFO  - jmeter.gui.action.LookAndFeelCommand: Using look and feel: com.apple.laf.AquaLookAndFeel [Mac OS X, System] 
-2016/11/23 20:36:09 INFO  - jmeter.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties 
-2016/11/23 20:36:11 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
-2016/11/23 20:36:11 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
-2016/11/23 20:36:12 INFO  - jmeter.util.BSFTestElement: Registering JMeter version of JavaScript engine as work-round for BSF-22 
-2016/11/23 20:36:12 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2016/11/23 20:36:12 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2016/11/23 20:36:12 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2016/11/23 20:36:12 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
-2016/11/23 20:36:12 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
-2016/11/23 20:36:12 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser 
-2016/11/23 20:36:13 INFO  - jorphan.exec.KeyToolUtils: keytool found at 'keytool' 
-2016/11/23 20:36:13 INFO  - jmeter.protocol.http.proxy.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/proxyserver.jks 
-2016/11/23 20:36:13 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.mongodb.config.MongoSourceElement 
-2016/11/23 20:36:13 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.mongodb.sampler.MongoScriptSampler 
-2016/11/23 20:36:13 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.visualizers.DistributionGraphVisualizer 
-2016/11/23 20:36:13 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
-2016/11/23 20:36:13 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
-2016/11/23 20:36:13 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
-2016/11/23 20:36:13 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
-2016/11/23 20:36:13 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.visualizers.SplineVisualizer 
-2016/11/23 20:36:52 INFO  - jmeter.services.FileServer: Default base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
-2016/11/23 20:36:52 INFO  - jmeter.gui.action.Load: Loading file: /Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo/jMeterTestPlan.jmx 
-2016/11/23 20:36:52 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
-2016/11/23 20:36:52 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
-2016/11/23 20:36:52 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
-2016/11/23 20:36:52 INFO  - jmeter.save.SaveService: Using SaveService properties version 2.9 
-2016/11/23 20:36:52 INFO  - jmeter.save.SaveService: All converter versions present and correct 
-2016/11/23 20:36:52 INFO  - jmeter.save.SaveService: Loading file: /Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo/jMeterTestPlan.jmx 
-2016/11/23 20:36:53 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
-2016/11/23 20:39:08 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
-2016/11/23 20:39:08 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
-2016/11/23 20:39:08 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
-2016/11/23 20:39:08 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
-2016/11/23 20:39:08 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
-2016/11/23 20:39:08 INFO  - jmeter.engine.StandardJMeterEngine: Starting 2 threads for group Thread Group. 
-2016/11/23 20:39:08 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
-2016/11/23 20:39:08 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 2 ramp-up 1 perThread 500.0 delayedStart=false 
-2016/11/23 20:39:08 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
-2016/11/23 20:39:08 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
-2016/11/23 20:39:08 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
-2016/11/23 20:39:08 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = MacBook-Pro.local 
-2016/11/23 20:39:08 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 
-2016/11/23 20:39:09 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-2 
-2016/11/23 20:40:08 INFO  - jmeter.gui.action.Start: Stopping test 
-2016/11/23 20:40:08 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-2 
-2016/11/23 20:40:08 WARN  - jmeter.threads.JMeterThread: Interrupting: Thread Group 1-2 sampler: HTTP Request 
-2016/11/23 20:40:08 INFO  - jmeter.threads.JMeterThread: Stopping: Thread Group 1-1 
-2016/11/23 20:40:08 WARN  - jmeter.threads.JMeterThread: Interrupting: Thread Group 1-1 sampler: HTTP Request 
-2016/11/23 20:40:08 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-2 
-2016/11/23 20:40:08 INFO  - jmeter.threads.JMeterThread: Thread finished: Thread Group 1-1 
-2016/11/23 20:40:08 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 
-2016/11/23 20:40:08 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(false,*local*) 
-2016/11/23 20:40:17 INFO  - jmeter.gui.action.Load: Loading file: /Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo/jMeterTestPlan.jmx 
-2016/11/23 20:40:17 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
-2016/11/23 20:40:17 INFO  - jmeter.save.SaveService: Loading file: /Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo/jMeterTestPlan.jmx 
-2016/11/23 20:40:17 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
-2016/11/23 20:40:19 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
-2016/11/23 20:40:19 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
-2016/11/23 20:40:19 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
-2016/11/23 20:40:20 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
-2016/11/23 20:40:20 INFO  - jmeter.engine.StandardJMeterEngine: Starting 2 threads for group Thread Group. 
-2016/11/23 20:40:20 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
-2016/11/23 20:40:20 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 2 ramp-up 1 perThread 500.0 delayedStart=false 
-2016/11/23 20:40:20 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
-2016/11/23 20:40:20 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
-2016/11/23 20:40:20 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
-2016/11/23 20:40:20 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-2 
+2016/11/24 10:18:16 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_GB 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: Loading user properties from: /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/user.properties 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: Loading system properties from: /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/system.properties 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: Copyright (c) 1998-2016 The Apache Software Foundation 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: Version 3.0 r1743807 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: java.version=1.8.0_102 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: os.name=Mac OS X 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: os.arch=x86_64 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: os.version=10.12.1 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: file.encoding=UTF-8 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: Max memory     =514850816 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: Available Processors =8 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: Default Locale=English (United Kingdom) 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: JMeter  Locale=English (United Kingdom) 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: JMeterHome=/Users/benwilcock/Desktop/apache-jmeter-3.0 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: user.dir  =/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo 
+2016/11/24 10:18:16 INFO  - jmeter.JMeter: PWD       =/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo 
+2016/11/24 10:18:17 INFO  - jmeter.JMeter: IP: 192.168.11.1 Name: MacBook-Pro.local FullName: 192.168.11.1 
+2016/11/24 10:18:18 INFO  - jmeter.gui.action.LookAndFeelCommand: Using look and feel: com.apple.laf.AquaLookAndFeel [Mac OS X, System] 
+2016/11/24 10:18:18 INFO  - jmeter.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties 
+2016/11/24 10:18:25 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
+2016/11/24 10:18:25 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
+2016/11/24 10:18:26 INFO  - jmeter.util.BSFTestElement: Registering JMeter version of JavaScript engine as work-round for BSF-22 
+2016/11/24 10:18:26 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/24 10:18:26 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/24 10:18:26 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/24 10:18:26 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2016/11/24 10:18:26 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2016/11/24 10:18:26 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser 
+2016/11/24 10:18:27 INFO  - jorphan.exec.KeyToolUtils: keytool found at 'keytool' 
+2016/11/24 10:18:27 INFO  - jmeter.protocol.http.proxy.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /Users/benwilcock/Desktop/apache-jmeter-3.0/bin/proxyserver.jks 
+2016/11/24 10:18:27 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.mongodb.config.MongoSourceElement 
+2016/11/24 10:18:27 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.protocol.mongodb.sampler.MongoScriptSampler 
+2016/11/24 10:18:27 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.visualizers.DistributionGraphVisualizer 
+2016/11/24 10:18:27 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
+2016/11/24 10:18:27 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
+2016/11/24 10:18:27 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
+2016/11/24 10:18:27 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
+2016/11/24 10:18:27 INFO  - jmeter.gui.util.MenuFactory: Skipping org.apache.jmeter.visualizers.SplineVisualizer 
+2016/11/24 10:19:02 INFO  - jmeter.services.FileServer: Default base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
+2016/11/24 10:19:02 INFO  - jmeter.gui.action.Load: Loading file: /Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo/jMeterTestPlan.jmx 
+2016/11/24 10:19:02 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
+2016/11/24 10:19:02 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2 
+2016/11/24 10:19:02 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2016/11/24 10:19:02 INFO  - jmeter.save.SaveService: Using SaveService properties version 2.9 
+2016/11/24 10:19:02 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2016/11/24 10:19:02 INFO  - jmeter.save.SaveService: Loading file: /Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo/jMeterTestPlan.jmx 
+2016/11/24 10:19:02 INFO  - jmeter.services.FileServer: Set new base='/Users/benwilcock/src/github/benwilcock/pcf-spring-cloud-services-demo' 
+2016/11/24 10:20:44 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2016/11/24 10:20:44 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/24 10:20:44 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2016/11/24 10:20:44 INFO  - jmeter.gui.util.JMeterMenuBar: setRunning(true,*local*) 
+2016/11/24 10:20:44 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group 
+2016/11/24 10:20:44 INFO  - jmeter.engine.StandardJMeterEngine: Starting 2 threads for group Thread Group. 
+2016/11/24 10:20:44 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2016/11/24 10:20:44 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 2 ramp-up 1 perThread 500.0 delayedStart=false 
+2016/11/24 10:20:44 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2016/11/24 10:20:44 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2016/11/24 10:20:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-1 
+2016/11/24 10:20:44 INFO  - jmeter.threads.JMeterThread: Thread started: Thread Group 1-2 
+2016/11/24 10:20:49 INFO  - jmeter.protocol.http.sampler.HTTPHCAbstractImpl: Local host = MacBook-Pro.local 
+2016/11/24 10:20:49 INFO  - jmeter.protocol.http.sampler.HTTPHC4Impl: HTTP request retry count = 0 

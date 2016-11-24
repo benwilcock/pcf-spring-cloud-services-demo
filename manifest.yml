@@ -2,11 +2,13 @@
 applications:
   - name: covers-service
     path: ./covers-service/build/libs/covers-service.jar
+    memory: 512m
     services:
       - registry
       - config
   - name: covers-consumer
     path: ./covers-consumer/build/libs/covers-consumer.jar
+    memory: 768m
     services:
       - registry
       - breaker
