@@ -6,9 +6,17 @@ applications:
     services:
       - registry
       - config
+      - rabbit
   - name: covers-consumer
     path: ./covers-consumer/build/libs/covers-consumer.jar
     memory: 768m
     services:
       - registry
       - breaker
+      - rabbit
+  - name: covers-zipkin
+    memory: 1024M
+    path: ./zipkin-server/build/libs/zipkin-server.jar
+    services:
+      - rabbit
+      - registry

@@ -1,7 +1,7 @@
-.gradle
-.idea
-.DS_Store
-.zip
-.log
+**/.gradle
+**/.idea
+**/.DS_Store
+**/*.zip
+**/*.log
 covers-consumer/build
 covers-service/build

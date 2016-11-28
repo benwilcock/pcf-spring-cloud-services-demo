@@ -1,0 +1,10 @@
+
+---
+applications:
+- name: zipkin
+  memory: 1024M
+  random-route: true
+  path: ./build/libs/zipkin-server.jar
+  services:
+    - rabbit
+    - registry

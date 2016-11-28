@@ -1,1 +1,1 @@
-include "covers-service", "covers-consumer"
+include "covers-service", "covers-consumer", "zipkin-server"

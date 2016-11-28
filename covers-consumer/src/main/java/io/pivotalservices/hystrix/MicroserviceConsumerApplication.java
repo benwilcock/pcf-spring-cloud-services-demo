@@ -9,6 +9,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,11 @@ public class MicroserviceConsumerApplication {
     @LoadBalanced
     public RestTemplate rest(RestTemplateBuilder builder) {
         return builder.build();
+    }
+
+    @Bean
+    public AlwaysSampler defaultSampler() {
+        return new AlwaysSampler();
     }
 
     @GetMapping("/mycovers")
