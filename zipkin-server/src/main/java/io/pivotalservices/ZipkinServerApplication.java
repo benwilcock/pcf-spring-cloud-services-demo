@@ -16,6 +16,14 @@ import org.springframework.cloud.sleuth.zipkin.stream.EnableZipkinStreamServer;
 @SpringBootApplication
 public class ZipkinServerApplication {
 
+    /**
+     * As you can see, there is little that needs to be done here thanks to Spring Boot & Cloud.
+     * Just build and deploy this [Zipkin] service app to Pivotal Cloud Foundry using the manifest
+     * provided in the root folder. Just make sure that the [Rabbit] and the [Registry] PCF services
+     * are bound to the app in order to properly fulfil it's dependencies. When Zipkin starts
+     * it will attach to Rabbit and wait for the Sleuth messages to start to come through from
+     * the 'covers-consumer' and 'covers-service' microservices.
+     */
 	public static void main(String[] args) {
 		SpringApplication.run(ZipkinServerApplication.class, args);
 	}

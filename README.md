@@ -37,57 +37,107 @@ You'll have to wait a few minutes while PCF gets on with provisioning the servic
 $ cf services
 ````
 
-When the Spring Cloud Services services have been provisioned your output form this command should look similar to that shown below. Services called `breaker`, `registry` and `config` have been added to your developer space in PCF.
+When the Spring Cloud Services services have been provisioned your output form this command should look similar to that shown below. Services called `breaker`, `registry`, `rabbit` and `config` have been added to your developer space in PCF.
 
 ````
 name       service                       plan       bound apps                        last operation
 breaker    p-circuit-breaker-dashboard   standard   covers-consumer                   create succeeded
-registry   p-service-registry            standard   covers-consumer, covers-service   create succeeded
+registry   p-service-registry            standard   covers-consumer, covers-service,  create succeeded
 config     p-config-server               standard   covers-service                    create succeeded
+rabbit     p-rabbitmq                    standard   covers-zipkin, covers-service...  create succeeded
 ````
 
 4. You can now build and push the demo Spring Boot microservices to PCF as follows.
 
 ````
-$ ./gradlew assemble
+$ ./gradlew clean assemble
 $ cf push
 ````
 
 > Both the `gradlew` command and a `manifest.yml` describing the microservices has been provided.
 
-Once the apps have been deployed, you're ready to test them.
+Once the apps have been deployed to PCF, you can begin to check out their features.
 
-## Using the Spring Cloud Services
+## Server Consoles
 
-To see the dashboards, login to PCF AppsManager and find the service that you want to inspect. Click the `Manage` link at the top of the service's details page. For the Circuit Breaker service you'll see a Hystrix dashboard. For the Service Registy you'll see a Eureka dashboard.
+Once deployed, you'll find that the following PCF services have made UI consoles available. 
 
-To test the apps you can use curl to send some requests to the `covers-consumer` microservice using the following command. You may prefer to try the JMeter project I've included to automate the sending of requests.
+ - RabbitMQ (RabbitMQ Console)
+ - Service Registry (Eureka Dashboard)
+ - Circuit Breaker (Hystrix Dashboard)
+
+You can get to these consoles by following the `Services(x) -> [Your Service Name] > Manage` link in the PCF Apps Manager application.
+
+Zipkin also provides a user interface which you can get to by opening the app in your browser using the link provided in the PCF Apps Manager. 
+
+## Using the Microservices
+
+To test the microservice apps you can use `curl` to send requests to the `covers-consumer` microservice using the following command. 
 
 ````
 $ while true; do sleep 1; curl covers-consumer.local.pcfdev.io/mycovers; echo -e '\n'$(date); done
 ````
 
-When everything is working (the `covers-consumer` can see and talk to the `covers-service`) you'll see...
+> If you're familiar with JMeter, you may prefer to try the JMeter project I've included in the root folder to automate the sending of these requests.
+
+When everything is working (i.e. when the `covers-consumer` microservice can see and talk to the `covers-service` microservice) you'll see output similar to that shown below...
 
 ````
-no cover, auto cover, home cover, duvet cover
+No Cover, Auto Cover, Home Cover, Duvet Cover
 Thu 24 Nov 2016 10:58:15 GMT
 ````
 
-The `covers-consumer` finds the `covers-service` using the *Service Registry*. At compile time it has no clue where the `covers-service` will be located, only it's logical name. You can see this in the code.
+The types of insurance cover available (no cover, auto cover, home cover, duvet cover) comes from a configuration property sourced from the *Config Service*.
 
-The output above showing the types of insurance cover available (no cover, auto cover, home cover, duvet cover) is a configuration property that comes from the *Config Service*. The config service is getting this from a repository on Github.com [here](https://github.com/benwilcock/app-config/blob/master/covers-service.yml).
-
-In order to demonstrate the *Circuit Breaker*, there is a purposely engineered exception that will occaisionally cause the circuit breaker to trip. When the fault occurs you'll see...
+There is a purposely engineered exception that will occasionally cause the circuit breaker to trip. When the fault occurs you'll see...
 
 ````
 No Cover
 Thu 24 Nov 2016 10:58:14 GMT
 ````
 
-This is the `covers-consumer` using a fallback because it thinks the `covers-service` is unavailable.
+This is the `covers-consumer` using a fallback method to provide a reduced set of covers because it thinks the `covers-service` is unavailable.
 
+## How it works
 
+1. The config can be refreshed at runtime without restarting. If the config changes in Git [here](https://github.com/benwilcock/app-config/blob/master/covers-service.yml), the changes can be applied while the service is still running by calling the `/refresh` endpoint. This endpoint is automatically added by the `spring boot actuator`.
+
+````
+curl -X POST covers-service.<your-pcf-domain-name>/refresh
+````
+
+This is standard Spring Cloud Config functionality. What's special about this is that if you have 100 running instances of a microservice, one POST to `/refresh` is all you need to change it for all instances and without rebooting. Pretty neat hey? 
+
+2. The `covers-consumer` is using a logical name to discover a reference to the `covers-service` using the Service Registry.
+
+````java
+URI uri = URI.create("//COVERS-SERVICE/covers");
+````
+
+This is standard Spring Cloud Registry functionality. What's neat about this is that the microservices can automatically register themselves when they start without the need for any complicated configuration other than the `@EnableDiscoveryClient` annotation. The registry server details come from the cloud environment properties that PCF provides as part of the service registry service binding.
+
+3. There is a circuit breaker protecting the service calls between the `covers-consumer` and the `covers-service`. This circuit breaker is triggered to break from time to time (as you can see if you open the code from the `CoversService.java` class).
+
+````java
+@HystrixCommand(fallbackMethod = "reliable")
+public String getCovers() {...}
+````
+
+  The method 'reliable()' contsins a simple fallback that returns `No Covers`
+  
+````java
+public String reliable() {
+    return "No Cover";
+}
+````
+
+4. The services are configured to use Sleuth to add trace information to their log messages.
+
+````bash
+INFO [covers-service,2850d9e30f986e35,3e79aa27ebf9f9e3,true] 13 --- [io-8080-exec-10]
+````
+
+Sleuth Stream is configured to send these messages to the Zipkin server via the RabbitMQ messaging system. This allows Zipkin to paint a clear overarching picture of all the service calls between all the microservices in the project.
 
 ## About the Author
 
