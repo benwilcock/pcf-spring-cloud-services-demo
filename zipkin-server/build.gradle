@@ -26,17 +26,17 @@ repositories {
 	mavenCentral()
 }
 
-
+/*
+* See the inline comments for details.
+*/
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry')
-	compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit')
-	compile('org.springframework.cloud:spring-cloud-sleuth-zipkin-stream')
-	compile('org.springframework.cloud:spring-cloud-starter-sleuth')
-	//compile('io.zipkin.java:zipkin-server')
-	runtime('io.zipkin.java:zipkin-autoconfigure-ui')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile('org.springframework.boot:spring-boot-starter') // Add Spring Boot for Context and AutoConfig.
+	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry') // Add [Registry] for auto registration.
+	compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit') // Add [Zipkin] [Sleuth] RabbitMQ Stream Binder.
+	compile('org.springframework.cloud:spring-cloud-sleuth-zipkin-stream') // Add [Zipkin] [Sleuth] Stream.
+	compile('org.springframework.cloud:spring-cloud-starter-sleuth') // Add [Sleuth] tracing.
+	runtime('io.zipkin.java:zipkin-autoconfigure-ui') // Add [Zipkin] UI.
+	testCompile('org.springframework.boot:spring-boot-starter-test') // Add Spring Boot Test.
 }
 
 dependencyManagement {
