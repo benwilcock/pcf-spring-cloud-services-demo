@@ -15,37 +15,64 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
-
-@EnableCircuitBreaker
-@EnableDiscoveryClient
-@RestController
-@SpringBootApplication
+/**
+ * This method offers an endpoint called '/mycovers' that will accept an empty GET
+ * request. It then uses the `covers-service` to get the latest types of cover available
+ * before returining this list to the user.
+ *
+ * If the covers service is unavailable, a [Circuit Breaker] kicks in which returns a single
+ * choice of `No Cover`.
+ */
+@EnableCircuitBreaker // Turns on the Hystrix [Circuit Breaker] features for this application
+@EnableDiscoveryClient // Allows this microservice to register itself with the [Registry]
+@RestController // Spring Stereotype
+@SpringBootApplication  // Identified this application as a Spring Boot application
 public class MicroserviceConsumerApplication {
 
     Logger LOG = LoggerFactory.getLogger(MicroserviceConsumerApplication.class);
 
-    @Autowired
+    @Autowired // Wires in the CoversService component
     private CoverService coverService;
 
     @Bean
-    @LoadBalanced
+    @LoadBalanced // Tell the RestTemplate to use a load balancer like Ribbon
     public RestTemplate rest(RestTemplateBuilder builder) {
         return builder.build();
     }
 
+    /**
+     * This bean definition tells Sleuth to establish the 'Always[On]Sampler` as the
+     * defaultSampler. This results in _all_ requests, responses and callouts being logged
+     * to [Zipkin].
+     * @return
+     */
     @Bean
     public AlwaysSampler defaultSampler() {
         return new AlwaysSampler();
     }
 
+    /**
+     * This method offers an endpoint called '/mycovers' that will accept an empty GET
+     * request. It then uses the `covers-service` to get the latest types of cover available
+     * before returining this list to the user.
+     *
+     * If the covers service is unavailable, a [Circuit Breaker] kicks in which returns a single
+     * choice of `No Cover`.
+     *
+     * @return String Types of cover available.
+     */
     @GetMapping("/mycovers")
     public String toRead() {
+        LOG.info("Asking for all known cover types...");
         String covers = coverService.getCovers();
-        LOG.info("Found the following covers: {}", covers);
+        LOG.info("Found the following cover types: {}", covers);
         return covers;
     }
 
+    /**
+     * Used to boot this microservice application using an embedded web server.
+     * @param args
+     */
 	public static void main(String[] args) {
 		SpringApplication.run(MicroserviceConsumerApplication.class, args);
 	}

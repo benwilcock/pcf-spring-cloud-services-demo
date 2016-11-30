@@ -12,6 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 @RefreshScope
 @RestController
 @SpringBootApplication
@@ -25,8 +27,11 @@ public class MicroserviceApplication {
 
 
 	@GetMapping(value = "/covers")
-	public String getCovers(){
-        LOG.info("Returning covers: {}", covers);
+	public String getCovers() throws InterruptedException {
+		LOG.info("Getting all known cover types...");
+        long random = (new Double(Math.random() * 1000)).longValue();
+        TimeUnit.MILLISECONDS.sleep(random); // Adding a random sleep interval to make trace more interesting.
+        LOG.info("Returning cover types: {}", covers);
         return covers;
 	}
 

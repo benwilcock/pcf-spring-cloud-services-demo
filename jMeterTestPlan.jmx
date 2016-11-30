@@ -28,7 +28,7 @@
       <hashTree>
         <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
           <collectionProp name="Asserion.test_strings">
-            <stringProp name="95954292">duvet</stringProp>
+            <stringProp name="-1199284789">Duvet Cover</stringProp>
             <stringProp name="0"></stringProp>
           </collectionProp>
           <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
@@ -134,7 +134,7 @@
         </HTTPSamplerProxy>
         <hashTree/>
         <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-          <stringProp name="ConstantTimer.delay">3000</stringProp>
+          <stringProp name="ConstantTimer.delay">2500</stringProp>
         </ConstantTimer>
         <hashTree/>
         <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
