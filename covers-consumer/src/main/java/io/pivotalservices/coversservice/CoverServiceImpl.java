@@ -1,4 +1,4 @@
-package io.pivotalservices.hystrix;
+package io.pivotalservices.coversservice;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;

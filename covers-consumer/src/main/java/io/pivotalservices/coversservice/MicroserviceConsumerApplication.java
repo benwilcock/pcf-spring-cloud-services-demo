@@ -1,4 +1,4 @@
-package io.pivotalservices.hystrix;
+package io.pivotalservices.coversservice;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

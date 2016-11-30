@@ -1,4 +1,4 @@
-package io.pivotalservices.hystrix;
+package io.pivotalservices.coversservice;
 
 /**
  * Created by benwilcock on 29/11/2016.
