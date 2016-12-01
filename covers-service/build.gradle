@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.2.RELEASE'
+        springBootVersion = '1.4.2.RELEASE' // Latest GA Spring Boot version at time of writing.
     }
     repositories {
         mavenCentral()
@@ -30,12 +30,12 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web') // Standard Spring Boot
     compile('org.springframework.boot:spring-boot-starter-actuator') // Add the /health, /info, /beans endpoints etc.
-    compile('io.pivotal.spring.cloud:spring-cloud-services-starter-config-client') // Add the [Config] server libraries
-	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry') // Add the [Registry] server libraries
     compile('org.springframework.cloud:spring-cloud-starter-sleuth') // Add the [Sleuth] logging libraries
-    compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit') // Add
-    compile('org.springframework.cloud:spring-cloud-sleuth-zipkin-stream')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit') // Add the [Sleuth] Rabbit messaging binder
+    compile('org.springframework.cloud:spring-cloud-sleuth-zipkin-stream') // Add the [Sleuth] messaging stream feature
+    compile('io.pivotal.spring.cloud:spring-cloud-services-starter-config-client') // Add the [Config] server libraries
+    compile('io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry') // Add the [Registry] server libraries
+    testCompile('org.springframework.boot:spring-boot-starter-test') // Used for testing
 }
 
 dependencyManagement {

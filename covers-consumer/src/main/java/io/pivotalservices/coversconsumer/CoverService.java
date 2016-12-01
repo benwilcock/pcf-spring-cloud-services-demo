@@ -1,4 +1,4 @@
-package io.pivotalservices.coversservice;
+package io.pivotalservices.coversconsumer;
 
 /**
  * Created by benwilcock on 29/11/2016.
@@ -6,4 +6,5 @@ package io.pivotalservices.coversservice;
  */
 public interface CoverService {
     public String getCovers();
+    public String getCoversFallbackMethod();
 }

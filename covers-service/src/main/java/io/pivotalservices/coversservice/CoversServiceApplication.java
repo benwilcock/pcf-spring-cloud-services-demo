@@ -5,7 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @RefreshScope
 @RestController
 @SpringBootApplication
-@ComponentScan("io.pivotalservices.coversservice")
+@EnableDiscoveryClient
 public class CoversServiceApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(CoversServiceApplication.class);
@@ -25,6 +28,17 @@ public class CoversServiceApplication {
 
 	@Value("${cover.service.random-delay:true}")
 	private boolean addRandomDelay;
+
+	/**
+	 * This bean definition tells Sleuth to establish the 'Always[On]Sampler` as the
+	 * defaultSampler. This results in _all_ requests, responses and callouts being logged
+	 * to [Zipkin].
+	 * @return
+	 */
+	@Bean
+	public AlwaysSampler defaultSampler() {
+		return new AlwaysSampler();
+	}
 
 	@GetMapping(value = "/covers")
 	public String getCovers() throws InterruptedException {

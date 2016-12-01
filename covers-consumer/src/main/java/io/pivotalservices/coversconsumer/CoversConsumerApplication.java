@@ -1,4 +1,4 @@
-package io.pivotalservices.coversservice;
+package io.pivotalservices.coversconsumer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +23,13 @@ import org.springframework.web.client.RestTemplate;
  * If the covers service is unavailable, a [Circuit Breaker] kicks in which returns a single
  * choice of `No Cover`.
  */
-@EnableCircuitBreaker // Turns on the Hystrix [Circuit Breaker] features for this application
-@EnableDiscoveryClient // Allows this microservice to register itself with the [Registry]
 @RestController // Spring Stereotype
 @SpringBootApplication  // Identified this application as a Spring Boot application
-public class MicroserviceConsumerApplication {
+@EnableCircuitBreaker // Turns on the Hystrix [Circuit Breaker] features for this application
+@EnableDiscoveryClient // Allows this microservice to register itself with the [Registry]
+public class CoversConsumerApplication {
 
-    Logger LOG = LoggerFactory.getLogger(MicroserviceConsumerApplication.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CoversConsumerApplication.class);
 
     @Autowired // Wires in the CoversService component
     private CoverService coverService;
@@ -74,6 +74,6 @@ public class MicroserviceConsumerApplication {
      * @param args
      */
 	public static void main(String[] args) {
-		SpringApplication.run(MicroserviceConsumerApplication.class, args);
+		SpringApplication.run(CoversConsumerApplication.class, args);
 	}
 }

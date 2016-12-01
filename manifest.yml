@@ -12,6 +12,7 @@ applications:
     memory: 768m
     services:
       - registry
+      - config
       - breaker
       - rabbit
   - name: covers-zipkin
