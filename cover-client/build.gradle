@@ -1,0 +1,53 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.2.RELEASE' // Latest GA Spring Boot version at time of writing.
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+        classpath("io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'cover-client'
+	version = ''
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web') // Standard Spring Boot stuff
+	compile('org.springframework.boot:spring-boot-starter-actuator') // Add the /health, /info, /beans endpoints etc.
+    compile('org.springframework.cloud:spring-cloud-starter-sleuth') // Add the [Sleuth] logging libraries
+	compile('org.springframework.cloud:spring-cloud-stream-binder-rabbit') // Add the [Sleuth] Rabbit messaging binder
+	compile('org.springframework.cloud:spring-cloud-sleuth-zipkin-stream') // Add the [Sleuth] messaging stream feature
+	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-config-client') // Add the [Config] server libraries
+	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry') // Add the [Registry] server libraries
+	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker') // Add the [Circuit Breaker] libraries
+	testCompile('org.springframework.boot:spring-boot-starter-test') // Used for testing
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR2" // Sets the versions of Spring Cloud components
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:1.3.0.RELEASE" // Sets the versions of Pivotal components
+	}
+}
+
+repositories {
+    maven {
+        url "https://repo.spring.io/plugins-release"
+    }
+}
