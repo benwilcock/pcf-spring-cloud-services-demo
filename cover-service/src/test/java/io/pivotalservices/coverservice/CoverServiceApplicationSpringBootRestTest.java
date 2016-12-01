@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles(value = {"test"})
-public class CoversServiceApplicationTests {
+public class CoverServiceApplicationSpringBootRestTest {
 
     @Value("${cover.service.cover-types}")
     private String covers;
