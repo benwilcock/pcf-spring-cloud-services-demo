@@ -4,25 +4,29 @@ This simple project demonstrates the use of Spring Cloud Services in PCF from Sp
 
 It contains two Spring Boot Microservices:
 
- 1. The Insurance Covers App `covers-consumer` which depends on...
- 2. The Covers Microservice `covers-service`
+ 1. The *Cover Client* microservice (`cover-client`) - a REST service which depends on...
+ 2. The *Cover Service* microservice (`cover-service`) - another REST service.
 
 Between them, these services use all three components of the Spring Cloud Services pack for Pivotal Cloud Foundry.
 
- 1. `covers-consumer` uses the Eureka (Registry) to discover the `covers-service`.
- 2. `covers-consumer` uses Hystrix (Service Breaker) to protect itself from the loss of the `covers-service`.
- 3. `covers-service` uses Spring Cloud Config to get the list of "insurance covers" it provides.
+ 1. `cover-client` uses the Eureka (Registry) to discover the `cover-service`.
+ 2. `cover-client` uses Hystrix (Service Breaker) to protect itself from the loss of the `cover-service`.
+ 3. `cover-service` uses Spring Cloud Config to get the list of "insurance covers" it provides.
 
 ## Installing
 
-> I'm going to assume you have setup PCF and have the Spring Cloud Services available in the marketplace. If you don't have PCF or don't have the necessary Spring Cloud Services installed, try [PCF Dev](https://docs.pivotal.io/pcf-dev/) instead (but remember to start PCF Dev with Spring Cloud Services available using `cf dev start -s scs` - you'll need 8GB free ram to do this).
+> I'm going to assume you have already setup PCF and the CF Cli and have the Spring Cloud Services available to you in the marketplace. If you don't have PCF or don't have the necessary Spring Cloud Services installed, try using [PCF Dev](https://docs.pivotal.io/pcf-dev/) but remember to start PCF Dev with Spring Cloud Services available using `cf dev start -s scs` (you'll need at least 8GB of free RAM to do this).
 
 1. Clone this repository into a folder. Make this folder your current folder in the terminal.
 
-2. Login to PCF and check the mayketplace to make sure the Spring Cloud Services are available to you.
+2. Login to PCF and check the marketplace to make sure that the Spring Cloud Services are available to you.
 
 ````
 $ cf marketplace
+
+p-circuit-breaker-dashboard   standard   Circuit Breaker Dashboard for Spring Cloud Applications
+p-config-server               standard   Config Server for Spring Cloud Applications
+p-service-registry            standard   Service Registry for Spring Cloud Applications
 ````
 
 3. If the services are available, you can now go ahead and provision some service instances using the script provided.
@@ -50,7 +54,7 @@ rabbit     p-rabbitmq                    standard   covers-zipkin, covers-servic
 4. You can now build and push the demo Spring Boot microservices to PCF as follows.
 
 ````
-$ ./gradlew clean assemble
+$ ./gradlew clean build
 $ cf push
 ````
 
@@ -103,7 +107,7 @@ This is the `covers-consumer` using a fallback method to provide a reduced set o
 1. The config can be refreshed at runtime without restarting. If the config changes in Git [here](https://github.com/benwilcock/app-config/blob/master/covers-service.yml), the changes can be applied while the service is still running by calling the `/refresh` endpoint. This endpoint is automatically added by the `spring boot actuator`.
 
 ````
-curl -X POST covers-service.<your-pcf-domain-name>/refresh
+$ curl -X POST covers-service.<your-pcf-domain-name>/refresh
 ````
 
 This is standard Spring Cloud Config functionality. What's special about this is that if you have 100 running instances of a microservice, one POST to `/refresh` is all you need to change it for all instances and without rebooting. Pretty neat hey? 
@@ -131,13 +135,13 @@ public String reliable() {
 }
 ````
 
-4. The services are configured to use Sleuth to add trace information to their log messages.
+4. Both of the services are configured to use Sleuth to add trace information to their log messages.
 
 ````bash
 INFO [covers-service,2850d9e30f986e35,3e79aa27ebf9f9e3,true] 13 --- [io-8080-exec-10]
 ````
 
-Sleuth Stream is configured to send these messages to the Zipkin server via the RabbitMQ messaging system. This allows Zipkin to paint a clear overarching picture of all the service calls between all the microservices in the project.
+Sleuth is configured to send these messages to the Zipkin server via a RabbitMQ based Stream. This allows Zipkin to paint a clear overarching picture of all the service calls between all the microservices in the project.
 
 ## About the Author
 
