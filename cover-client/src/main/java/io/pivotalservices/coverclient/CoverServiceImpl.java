@@ -25,12 +25,7 @@ public class CoverServiceImpl implements CoverService {
     private static final String SERVICE_PREFIX = "//";
     private static final String ENDPOINT_PREFIX = "/";
 
-    /**
-     * Wire in the RestTemplate from the context.
-     * @param restTemplate
-     */
-    @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     @Value("${cover.client.failsafe.cover-types:NotConfigured}")
     private String coverTypes;
@@ -44,6 +39,9 @@ public class CoverServiceImpl implements CoverService {
     @Value("${cover.client.coverTypesEndpoint:covers}")
     private String coverTypesEndpoint;
 
+    public CoverServiceImpl(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     /**
      * This method is used to discover the latest types of Cover available.

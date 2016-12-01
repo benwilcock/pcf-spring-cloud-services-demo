@@ -1,5 +1,6 @@
 package io.pivotalservices.coverclient;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -16,7 +17,7 @@ import static org.mockito.Mockito.verify;
  * Created by benwilcock on 30/11/2016.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class CoversServiceJUnitOnlyTest {
+public class CoverServiceJUnitOnlyTest {
 
     @Mock
     RestTemplate mockRestTemplate;
@@ -25,13 +26,13 @@ public class CoversServiceJUnitOnlyTest {
     public void testGetCovers(){
         //Arrange
         given(mockRestTemplate.getForObject(any(URI.class), any())).willReturn("Blah");
-        CoverService service = new CoverServiceImpl();
+        CoverService service = new CoverServiceImpl(mockRestTemplate);
 
         //Act
-        //String answer = service.getCovers();
+        String answer = service.getCovers();
 
         //Assert
-        //verify(mockRestTemplate).getForObject(any(URI.class), any());
-        //Assert.assertEquals("Blah", answer);
+        verify(mockRestTemplate).getForObject(any(URI.class), any());
+        Assert.assertEquals("Blah", answer);
     }
 }
