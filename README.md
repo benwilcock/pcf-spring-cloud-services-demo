@@ -62,19 +62,7 @@ Between them, these services use all three components of the Spring Cloud Servic
     
     > Both a `gradlew` command for building the microservices and a `manifest.yml` describing the microservices has been provided for you.
 
-Once the services have been provisioned and the apps have been happily built and deployed to PCF, you can begin to check out the combined features of this microservice architecture.
-
-## Server Consoles
-
-Once the services are provisioned, you'll find that SCS has made the following UI consoles available to you. 
-
- - RabbitMQ (RabbitMQ Console)
- - Service Registry (Eureka Dashboard)
- - Circuit Breaker (Hystrix Dashboard)
-
-You can get to these consoles by following the `Services(x) -> [Your Service Name] > Manage` link in the PCF Apps Manager application.
-
-Zipkin is not part of the SCS tile, but it also provides a UI for searching for traces which you can get to by opening the app in your browser using the link provided in the PCF Apps Manager. 
+Once the SCS services have been provisioned and the apps you build have been bound and deployed to PCF, you're ready to examine the power of their combined features with this microservice architecture. 
 
 ## Using the Microservices
 
@@ -106,44 +94,57 @@ This is the `covers-consumer` using a fallback method to provide a reduced set o
 
 ## Demo Highlights
 
-1. The config of the microservices can be refreshed at runtime without restarting. If the config changes in Git [here](https://github.com/benwilcock/app-config/blob/master/covers-service.yml), the changes can be applied while the service is still running simply by calling the `/refresh` endpoint. This endpoint is automatically added by the `spring boot actuator`.
+1. The config of the microservices is fully externalised (12factor style) and can be refreshed at any time without having to restart the application. If the config changes in Git [here](https://github.com/benwilcock/app-config/blob/master/covers-service.yml), the changes can be applied while the service is still running simply by calling the `/refresh` endpoint. This endpoint is automatically added by Spring Boot.
 
     ````bash
     $ curl -X POST covers-service.<your-pcf-domain-name>/refresh
     ````
 
-    This is standard Spring Cloud Config functionality. What's special about this is that if you have 100 running service instances, a POST to `/refresh` on just one instance is all you need to change it for all instances without rebooting. Pretty neat hey? 
+    This is standard Spring Cloud Config functionality. What's special about this is that if you have 100 running service instances, a single POST to `/refresh` on just one instance is all you need to change the configuration for all running instances without restarting. Pretty neat hey? 
 
-2. The `covers-consumer` is using a logical name to discover a reference to the `covers-service` using the Service Registry. There are no hard-coded endpoints.
+2. The location of other services is discovered via a registry of logical names. As an example of this, the `covers-consumer` is using a logical name to discover a reference to the `covers-service` using the registry. There are no hard-coded endpoints.
 
     ````java
     URI uri = URI.create("//COVERS-SERVICE/covers");
     ````
 
-    This is standard Spring Cloud Registry functionality. What's cool about this is that the microservices automatically register themselves with the registry when they start. There is no complicated configuration other than the `@EnableDiscoveryClient` annotation in the application class. The registry server's contact details come from the cloud `environment properties` that PCF provides automatically at startup as part of the service registry binding process.
+    This is standard Spring Cloud Registry functionality. What's also cool about this is that the microservices automatically register themselves with the registry when they boot. There is no complicated configuration other than the `@EnableDiscoveryClient` annotation in the application class. The registry server's contact details come from the `environment properties` that PCF automatically provides at startup as part of the service binding.
 
-3. There is a circuit breaker protecting the service calls between the `covers-consumer` and the `covers-service`. This circuit breaker is triggered to break from time to time (as you can see if you open the code from the `CoversService.java` class).
+3. Service-to-service calls are resilient and have useful fallbacks that can help prevent cascading exceptions. As an example, there is a circuit breaker protecting the service calls between the `covers-consumer` and the `covers-service`. This circuit breaker is artificially triggered from time to time in order to show the breaker in operation (as you can see if you open the code from the `CoversService.java` class).
 
     ````java
-    @HystrixCommand(fallbackMethod = "reliable")
+    @HystrixCommand(fallbackMethod = "getCoversFallbackMethod")
     public String getCovers() {...}
     ````
 
-    The method 'reliable()' contsins a simple fallback that returns `No Covers`
+    The method 'getCoversFallbackMethod()' contsins a simple fallback that returns `No Covers`
   
     ````java
-    public String reliable() {
+    public String getCoversFallbackMethod() {
         return "No Cover";
     }
     ````
 
-4. Both of the services are configured to use Sleuth. When on the classpath, this library automatically adds trace information to the log messages of Spring Boot applications.
+4. Both of the microservices are configured to use Sleuth. When on the classpath, Sleuth automatically adds trace information to the log messages of Spring Boot applications...
 
     ````bash
     INFO [covers-service,2850d9e30f986e35,3e79aa27ebf9f9e3,true] 13 --- [io-8080-exec-10]
     ````
 
     Sleuth is configured to send these messages to the Zipkin server via a RabbitMQ based message stream. This allows the Zipkin server to paint a clear and overarching picture of all the service calls between all the microservices in the project. It can even diagram these interactions for you to aid your understanding your microservice communications. 
+    
+
+## Extra Credit - The Server Consoles
+
+When you provisioned the services, SCS made the following UI consoles available to you... 
+
+ - RabbitMQ (RabbitMQ Console)
+ - Service Registry (Eureka Dashboard)
+ - Circuit Breaker (Hystrix Dashboard)
+
+You can get to these consoles by following the `Services(x) -> [Your Service Name] > Manage` link in the PCF Apps Manager application.
+
+Zipkin is not part of the SCS tile, but it also provides a UI for searching for traces which you can get to by opening the app in your browser using the link provided in the PCF Apps Manager.
 
 ## About the Author
 
