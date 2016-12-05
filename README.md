@@ -21,48 +21,48 @@ Between them, these services use all three components of the Spring Cloud Servic
 
 2. Login to PCF and check the marketplace to make sure that the Spring Cloud Services are available to you as follows...
 
-````bash
-$ cf marketplace
-
-p-circuit-breaker-dashboard   standard   Circuit Breaker Dashboard for Spring Cloud Applications
-p-config-server               standard   Config Server for Spring Cloud Applications
-p-service-registry            standard   Service Registry for Spring Cloud Applications
-````
+    ````bash
+    $ cf marketplace
+    
+    p-circuit-breaker-dashboard   standard   Circuit Breaker Dashboard for Spring Cloud Applications
+    p-config-server               standard   Config Server for Spring Cloud Applications
+    p-service-registry            standard   Service Registry for Spring Cloud Applications
+    ````
 
 3. If the required SCS services are available in the marketplace, you can now go ahead and provision these services using the setup-services.sh script provided (windows users may need to add a non bash equivalent).
 
-````bash
-$ ./setup-services.sh
-````
+    ````bash
+    $ ./setup-services.sh
+    ````
 
-> If you decide not to use the script and provision them by hand, be aware that the Config server needs a JSON file containing the location of the Git repository that holds the application configuration for the microservices.
+    > If you decide not to use the script and provision them by hand, be aware that the Config server needs a JSON file containing the location of the Git repository that holds the application configuration for the microservices.
 
-You'll have to wait a few minutes while PCF provisions the services you've asked for. Check the status of the services periodically using the following command...
-
-````bash
-$ cf services
-````
-
-When the SCS services have been provisioned, your output form this command should look similar to that shown below. Note that services called `breaker`, `registry`, `rabbit` and `config` have been added to your list of services in PCF.
-
-````bash
-name       service                       plan       bound apps                        last operation
-breaker    p-circuit-breaker-dashboard   standard   covers-consumer                   create succeeded
-registry   p-service-registry            standard   covers-consumer, covers-service,  create succeeded
-config     p-config-server               standard   covers-service                    create succeeded
-rabbit     p-rabbitmq                    standard   covers-zipkin, covers-service...  create succeeded
-````
+    You'll have to wait a few minutes while PCF provisions the services you've asked for. Check the status of the services periodically using the following command...
+    
+    ````bash
+    $ cf services
+    ````
+    
+    When the SCS services have been provisioned, your output form this command should look similar to that shown below. Note that services called `breaker`, `registry`, `rabbit` and `config` have been added to your list of services in PCF.
+    
+    ````bash
+    name       service                       plan       bound apps                        last operation
+    breaker    p-circuit-breaker-dashboard   standard   covers-consumer                   create succeeded
+    registry   p-service-registry            standard   covers-consumer, covers-service,  create succeeded
+    config     p-config-server               standard   covers-service                    create succeeded
+    rabbit     p-rabbitmq                    standard   covers-zipkin, covers-service...  create succeeded
+    ````
 
 4. You can now build and push the demo Spring Boot microservices to PCF as follows.
 
-````bash
-$ ./gradlew clean build
-$ cf push
-````
+    ````bash
+    $ ./gradlew clean build
+    $ cf push
+    ````
+    
+    > Both a `gradlew` command for building the microservices and a `manifest.yml` describing the microservices has been provided for you.
 
-> Both a `gradlew` command for building the microservices and a `manifest.yml` describing the microservices has been provided for you.
-
-Once the apps have been deployed to PCF, you can begin to check out their features.
+Once the apps have been happily built and deployed to PCF, you can begin to check out their features.
 
 ## Server Consoles
 
