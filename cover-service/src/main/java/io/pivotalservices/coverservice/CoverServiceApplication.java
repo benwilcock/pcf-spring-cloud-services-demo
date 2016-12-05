@@ -7,14 +7,14 @@ import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
 import org.springframework.context.annotation.Bean;
 
 
-@SpringBootApplication
-@EnableDiscoveryClient
+@SpringBootApplication // Standard Spring Boot application identifier
+@EnableDiscoveryClient // Enables registry registration with the [Registry]
 public class CoverServiceApplication {
 
 	/**
-	 * This bean definition tells Sleuth to establish the 'Always[On]Sampler` as the
+	 * This @Bean definition tells Sleuth to establish the 'Always[On]Sampler` as the
 	 * defaultSampler. This results in _all_ requests, responses and callouts being logged
-	 * to [Zipkin].
+	 * to [Zipkin] (even the [Zipkin] timing messages themselves).
 	 * @return
 	 */
 	@Bean
@@ -22,6 +22,11 @@ public class CoverServiceApplication {
 		return new AlwaysSampler();
 	}
 
+	/**
+	 * Used to start the application when packaged as a Java JAR. Uses String Boot's default web configuration
+	 * which includes the embedded Tomcat webserver.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(CoverServiceApplication.class, args);
 	}

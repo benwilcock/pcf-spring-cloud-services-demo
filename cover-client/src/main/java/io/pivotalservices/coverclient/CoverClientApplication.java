@@ -20,7 +20,6 @@ import org.springframework.web.client.RestTemplate;
  * If the covers service is unavailable, a [Circuit Breaker] kicks in which returns a single
  * choice of `No Cover`.
  */
-//@RestController // Spring Stereotype
 @SpringBootApplication  // Identified this application as a Spring Boot application
 @EnableCircuitBreaker // Turns on the Hystrix [Circuit Breaker] features for this application
 @EnableDiscoveryClient // Allows this microservice to register itself with the [Registry]
@@ -46,7 +45,8 @@ public class CoverClientApplication {
     }
 
     /**
-     * Used to boot this microservice application using an embedded web server.
+     * Used to start the application when packaged as a Java JAR. Uses String Boot's default web configuration
+     * which includes the embedded Tomcat webserver.
      * @param args
      */
 	public static void main(String[] args) {

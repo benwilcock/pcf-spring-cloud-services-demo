@@ -3,7 +3,6 @@ package io.pivotalservices.coverclient;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
@@ -16,9 +15,14 @@ import java.net.URI;
  * This service class handles the communication with the `covers-service` application.
  * This callout features a [Circuit Breaker] and requires the [Registry] to contain
  * an entry for the dependent `covers-service`.
+ *
+ * This class depends on the [Config] service for it's configuration. The @Value
+ * annotation is being used to inject various parameters. Where possible each also has
+ * a hard-coded default 'just in case'. When correctly configured, these defaults will
+ * not be used.
  */
-@Service
-@RefreshScope
+@Service  // Stereotype annotation identifying this class as offering a service
+@RefreshScope // Includes this class in the 'refresh' scope when config changes.
 public class CoverServiceImpl implements CoverService {
 
     private static final Logger LOG = LoggerFactory.getLogger(CoverService.class);
@@ -28,7 +32,7 @@ public class CoverServiceImpl implements CoverService {
     private RestTemplate restTemplate;
 
     @Value("${cover.client.failsafe.cover-types:NotConfigured}")
-    private String coverTypes;
+    private String fallbackCoverTypes;
 
     @Value("${cover.client.random-faults:false}")
     private boolean randomFaults;
@@ -64,7 +68,7 @@ public class CoverServiceImpl implements CoverService {
         }
 
         try {
-            /** Use a logical name to identify the target microservice **/
+            /** Use a logical name (from the config) to identify the target microservice **/
             URI uri = URI.create(SERVICE_PREFIX + coverServiceLogicalName + ENDPOINT_PREFIX + coverTypesEndpoint);
             LOG.debug("Calling the 'covers-service' ({}) to get all the latest types of cover....", uri.toString());
             String covers = this.restTemplate.getForObject(uri, String.class);
@@ -78,11 +82,12 @@ public class CoverServiceImpl implements CoverService {
 
     /**
      * This is the Fallback method that Hystrix will use when the 'getCovers()' method fails.
+     * This method is chosen in the HystrixCommand annotation on the `getCovers()` method above.
      * @return
      */
     public String getCoversFallbackMethod() {
         LOG.warn("Using the fallback method as there was an issue getting the cover types.");
-        return coverTypes;
+        return fallbackCoverTypes;
     }
 
 }

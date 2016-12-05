@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by benwilcock on 01/12/2016.
  */
-@RestController
+@RestController // Identifies this class as a REST service controller
 public class CoverClientController {
 
     private static final Logger LOG = LoggerFactory.getLogger(CoverClientController.class);
