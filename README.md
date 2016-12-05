@@ -62,7 +62,7 @@ Between them, these services use all three components of the Spring Cloud Servic
     
     > Both a `gradlew` command for building the microservices and a `manifest.yml` describing the microservices has been provided for you.
 
-Once the apps have been happily built and deployed to PCF, you can begin to check out their features.
+Once the services have been provisioned and the apps have been happily built and deployed to PCF, you can begin to check out the combined features of this microservice architecture.
 
 ## Server Consoles
 
