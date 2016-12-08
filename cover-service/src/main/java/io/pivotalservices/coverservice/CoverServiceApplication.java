@@ -50,6 +50,9 @@ public class CoverServiceApplication {
 		SpringApplication.run(CoverServiceApplication.class, args);
 	}
 
+    /**
+     * Called once Spring is configured but before starting the application proper.
+     */
 	@PostConstruct
     public void dump(){
         LOG.info("The TEST_ENV_VARIABLE is set to '{}'", testEnvVariable);
