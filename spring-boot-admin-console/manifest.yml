@@ -1,0 +1,7 @@
+---
+applications:
+  - name: cover-admin-console
+    memory: 512M
+    path: ./build/libs/spring-boot-admin-console.jar
+    services:
+      - registry

@@ -1,1 +1,1 @@
-include "cover-service", "cover-client", "zipkin-server"
+include "cover-service", "cover-client", "zipkin-server", "spring-boot-admin-console"
