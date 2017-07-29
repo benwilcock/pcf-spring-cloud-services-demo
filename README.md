@@ -56,7 +56,7 @@ Between them, these services use all three components of the Spring Cloud Servic
 4. You can now build and push the demo Spring Boot microservices to PCF as follows.
 
     ````bash
-    $ ./gradlew clean build
+    $ ./gradlew clean assemble
     $ cf push
     ````
     
@@ -66,15 +66,15 @@ Once the SCS services have been provisioned and the apps you build have been bou
 
 ## Using the Microservices
 
-To test the microservice apps you can use a simple `curl` to send requests to the `covers-consumer` microservice. The following command does this repeatedly every second... 
+To test the microservice apps you can use a simple `curl` to send requests to the `cover-client` microservice. The following command does this repeatedly every second... 
 
 ````bash
-$ while true; do sleep 1; curl covers-consumer.local.pcfdev.io/mycovers; echo -e '\n'$(date); done
+$ while true; do sleep 1; curl cover-client.<your-pcf-domain-name>/mycovers; echo -e '\n'$(date); done
 ````
 
 > If you're more familiar with JMeter, you may prefer to use the JMeter project I've included in the root folder to automate the sending of these requests (but remember to reconfigure the JMeter project to use your PCF endpoint URI's).
 
-When everything is working (i.e. when the `covers-consumer` microservice can see and talk to the `covers-service` microservice) you'll see output similar to that shown below...
+When everything is working (i.e. when the `cover-client` microservice can see and talk to the `cover-service` microservice) you'll see output similar to that shown below...
 
 ````bash
 No Cover, Auto Cover, Home Cover, Duvet Cover
@@ -90,19 +90,19 @@ No Cover
 Thu 24 Nov 2016 10:58:14 GMT
 ````
 
-This is the `covers-consumer` using a fallback method to provide a reduced set of covers because it thinks the `covers-service` is unavailable.
+This is the `cover-client` using a fallback method to provide a reduced set of covers because it thinks the `cover-service` is unavailable.
 
 ## Demo Highlights
 
 1. The config of the microservices is fully externalised (12factor style) and can be refreshed at any time without having to restart the application. If the config changes in Git [here](https://github.com/benwilcock/app-config/blob/master/covers-service.yml), the changes can be applied while the service is still running simply by calling the `/refresh` endpoint. This endpoint is automatically added by Spring Boot.
 
     ````bash
-    $ curl -X POST covers-service.<your-pcf-domain-name>/refresh
+    $ curl -X POST -d "" cover-service.<your-pcf-domain-name>/refresh
     ````
 
-    This is standard Spring Cloud Config functionality. What's special about this is that if you have 100 running service instances, a single POST to `/refresh` on just one instance is all you need to change the configuration for all running instances without restarting. Pretty neat hey? 
+    This is standard Spring Cloud Config functionality. What's special about this is that if you have 100 running service instances, a single POST to `/refresh` on just one of those instances is all you need to refresh the configuration for all 100 running instances without restarting. Pretty neat hah? 
 
-2. The location of other services is discovered via a registry of logical names. As an example of this, the `covers-consumer` is using a logical name to discover a reference to the `covers-service` using the registry. There are no hard-coded endpoints.
+2. The location of other services is discovered via a registry of logical names. As an example of this, the `cover-client` is using a logical name to discover a reference to the `cover-service` using the registry. There are no hard-coded endpoints.
 
     ````java
     URI uri = URI.create("//COVERS-SERVICE/covers");
@@ -110,7 +110,7 @@ This is the `covers-consumer` using a fallback method to provide a reduced set o
 
     This is standard Spring Cloud Registry functionality. What's also cool about this is that the microservices automatically register themselves with the registry when they boot. There is no complicated configuration other than the `@EnableDiscoveryClient` annotation in the application class. The registry server's contact details come from the `environment properties` that PCF automatically provides at startup as part of the service binding.
 
-3. Service-to-service calls are resilient and have useful fallbacks that can help prevent cascading exceptions. As an example, there is a circuit breaker protecting the service calls between the `covers-consumer` and the `covers-service`. This circuit breaker is artificially triggered from time to time in order to show the breaker in operation (as you can see if you open the code from the `CoversService.java` class).
+3. Service-to-service calls are resilient and have useful fallbacks that can help prevent cascading exceptions. As an example, there is a circuit breaker protecting the service calls between the `cover-client` and the `cover-service`. This circuit breaker is artificially triggered from time to time in order to show the breaker in operation (as you can see if you open the code from the `CoverService.java` class).
 
     ````java
     @HystrixCommand(fallbackMethod = "getCoversFallbackMethod")
